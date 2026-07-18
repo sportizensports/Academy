@@ -1,13 +1,16 @@
 'use client';
+
 import { useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Calendar, User, ChevronRight } from 'lucide-react';
+
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
+
 interface Program {
   id: string;
   title: string;
@@ -17,8 +20,10 @@ interface Program {
   imgUrl: string;
   glow: string;
 }
+
 export default function ProgramsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+
   const programs: Program[] = [
     {
       id: 'kids',
@@ -57,6 +62,7 @@ export default function ProgramsSection() {
       glow: 'rgba(244, 122, 32, 0.6)',
     },
   ];
+
   useGSAP(() => {
     const cards = gsap.utils.toArray('.program-card');
     
@@ -79,6 +85,7 @@ export default function ProgramsSection() {
       );
     });
   }, { scope: containerRef });
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const target = document.querySelector('#trial');
@@ -86,6 +93,7 @@ export default function ProgramsSection() {
       target.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
     <section
       id="programs"
@@ -95,6 +103,7 @@ export default function ProgramsSection() {
       {/* Background glow filters */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-[#F47A20]/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] rounded-full bg-[#3a6073]/10 blur-[150px] pointer-events-none" />
+
       <div className="max-w-6xl mx-auto w-full relative z-10">
         {/* Header */}
         <div className="mb-20 text-center md:text-left">
@@ -106,6 +115,7 @@ export default function ProgramsSection() {
             From beginners to court leaders, select the program designed for your age bracket and developmental timeline.
           </p>
         </div>
+
         {/* Stack of horizontal cards */}
         <div className="flex flex-col gap-10">
           {programs.map((program) => (
@@ -129,10 +139,12 @@ export default function ProgramsSection() {
                 
                 {/* Dark tint overlay */}
                 <div className="absolute inset-0 bg-[#0E2240]/65 z-10" />
+
                 {/* Overlay court lines in card graphics */}
                 <div className="absolute inset-0 opacity-15 border border-white m-4 rounded-lg pointer-events-none flex items-center justify-center z-20">
                   <div className="w-[80%] h-[80%] border border-white rounded-full" />
                 </div>
+
                 <span className="font-bebas text-4xl lg:text-5xl tracking-widest text-white drop-shadow-md z-20 leading-none relative">
                   {program.title.split(" ")[0]}
                 </span>
@@ -140,6 +152,7 @@ export default function ProgramsSection() {
                   {program.title.split(" ").slice(1).join(" ")}
                 </span>
               </div>
+
               {/* Text / Details */}
               <div className="flex-1 p-8 lg:p-10 flex flex-col justify-between bg-gradient-to-r from-transparent to-[#0E2240]/10">
                 <div>
@@ -154,11 +167,13 @@ export default function ProgramsSection() {
                       {program.duration}
                     </span>
                   </div>
+
                   {/* Description */}
                   <p className="text-white/70 font-sans text-sm md:text-base leading-relaxed mb-8 max-w-2xl">
                     {program.description}
                   </p>
                 </div>
+
                 {/* CTA */}
                 <div className="flex items-center">
                   <a

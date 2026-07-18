@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
+
 const bebasNeue = Bebas_Neue({
   weight: "400",
   variable: "--font-bebas-neue",
   subsets: ["latin"],
 });
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
 export const metadata: Metadata = {
   title: "Sportizen Basketball Academy Delhi | Dilshad Garden",
   description: "Join Sportizen Basketball Academy at Arwachin International School, Dilshad Garden, Delhi. Elite youth basketball coaching and training classes for kids, juniors, and teens. Monday, Wednesday, Friday batches.",
@@ -31,6 +34,7 @@ export const metadata: Metadata = {
     "basketball coaching classes Shahdara"
   ],
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
