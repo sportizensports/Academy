@@ -14,13 +14,6 @@ interface Tile {
 export default function WhySection() {
   const tiles: Tile[] = [
     {
-      id: 'coaches',
-      title: 'Professional Coaches',
-      description: 'Learn directly from FIBA-certified instructors, former national team captains, and seasoned tactical mentors.',
-      icon: <GraduationCap className="w-8 h-8 text-[#F47A20]" />,
-      colSpan: 'md:col-span-2',
-    },
-    {
       id: 'batches',
       title: 'Small Batch Size',
       description: 'We maintain a strict 1:12 coach-to-student ratio to ensure each player receives individual corrective guidance.',
