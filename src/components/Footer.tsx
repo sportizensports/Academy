@@ -1,8 +1,57 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { InstagramIcon, FacebookIcon, YoutubeIcon } from '@/components/ui/SocialIcons';
+
+function VisitorCounter() {
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    async function trackVisit() {
+      try {
+        const now = new Date();
+        const monthKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+        const storageKey = 'sportizen_last_visit_month';
+        const lastVisitedMonth = localStorage.getItem(storageKey);
+        
+        const isNewVisit = lastVisitedMonth !== monthKey;
+        
+        const res = await fetch('/api/visits', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ isNewVisit, monthKey }),
+        });
+        
+        const data = await res.json();
+        if (data && typeof data.count === 'number') {
+          setVisitorCount(data.count);
+          if (isNewVisit) {
+            localStorage.setItem(storageKey, monthKey);
+          }
+        }
+      } catch (err) {
+        console.error('Error tracking visitor metrics:', err);
+      }
+    }
+    
+    trackVisit();
+  }, []);
+
+  if (visitorCount === null) return null;
+
+  return (
+    <span 
+      className="text-[10px] text-white/10 select-none cursor-default hover:text-white/30 transition-colors duration-300" 
+      title="Monthly Unique Visitors"
+    >
+      MUV: {visitorCount}
+    </span>
+  );
+}
 
 export default function Footer() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -123,6 +172,9 @@ export default function Footer() {
         {/* Lower footer copyrights */}
         <div className="flex flex-col md:flex-row items-center justify-between text-xs text-white/40 font-sans gap-4 text-center">
           <span>&copy; {new Date().getFullYear()} Sportizen Basketball Academy. All rights reserved.</span>
+          
+          <VisitorCounter />
+
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

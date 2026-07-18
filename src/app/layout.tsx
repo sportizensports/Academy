@@ -14,12 +14,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://sportizen.online'),
   title: "Sportizen Basketball Academy Delhi | Dilshad Garden",
   description: "Join Sportizen Basketball Academy at Arwachin International School, Dilshad Garden, Delhi. Elite youth basketball coaching and training classes for kids, juniors, and teens. Monday, Wednesday, Friday batches.",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
+  },
+  openGraph: {
+    title: "Sportizen Basketball Academy Delhi | Dilshad Garden",
+    description: "Join Sportizen Basketball Academy at Arwachin International School, Dilshad Garden, Delhi. Elite youth basketball coaching and training classes for kids, juniors, and teens. Monday, Wednesday, Friday batches.",
+    url: "https://sportizen.online",
+    siteName: "Sportizen Basketball Academy",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Sportizen Basketball Academy Logo",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
   },
   keywords: [
     "basketball academy in Dilshad Garden",
