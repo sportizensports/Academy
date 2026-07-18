@@ -32,7 +32,7 @@ export default function WhySection() {
       title: 'Fitness & Conditioning',
       description: 'Custom agility drills, plyometrics, jump-vertical development, and endurance circuits tailored for young athletes.',
       icon: <Dumbbell className="w-8 h-8 text-[#F47A20]" />,
-      colSpan: 'md:col-span-2',
+      colSpan: 'md:col-span-1',
     },
     {
       id: 'training',

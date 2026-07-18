@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { ShieldCheck, Target, Flame, ClipboardList, Users } from 'lucide-react';
+import { Target, Flame, ClipboardList, Users } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -67,34 +67,28 @@ export default function AboutSection() {
     tl.to(ballRef.current, { x: '0%', opacity: 1, duration: 0.1 });
 
     // Dribble to Card 1
-    tl.to(ballRef.current, { x: '10%', y: 60, ease: 'power1.in', duration: 0.2 })
-      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.2 })
+    tl.to(ballRef.current, { x: '12%', y: 60, ease: 'power1.in', duration: 0.25 })
+      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.25 })
       .to('.about-card-0', { opacity: 1, y: 0, scale: 1, ease: 'back.out(1.4)', duration: 0.4 }, '-=0.1')
       .to('.about-card-0 .icon-wrapper', { rotate: 360, duration: 0.4 }, '<');
 
     // Dribble to Card 2
-    tl.to(ballRef.current, { x: '30%', y: 60, ease: 'power1.in', duration: 0.2 })
-      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.2 })
+    tl.to(ballRef.current, { x: '37%', y: 60, ease: 'power1.in', duration: 0.25 })
+      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.25 })
       .to('.about-card-1', { opacity: 1, y: 0, scale: 1, ease: 'back.out(1.4)', duration: 0.4 }, '-=0.1')
       .to('.about-card-1 .icon-wrapper', { scale: 1.3, duration: 0.2, yoyo: true, repeat: 1 }, '<');
 
     // Dribble to Card 3
-    tl.to(ballRef.current, { x: '50%', y: 60, ease: 'power1.in', duration: 0.2 })
-      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.2 })
+    tl.to(ballRef.current, { x: '62%', y: 60, ease: 'power1.in', duration: 0.25 })
+      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.25 })
       .to('.about-card-2', { opacity: 1, y: 0, scale: 1, ease: 'back.out(1.4)', duration: 0.4 }, '-=0.1')
       .to('.about-card-2 .icon-wrapper', { skewX: 15, duration: 0.2, yoyo: true, repeat: 1 }, '<');
 
     // Dribble to Card 4
-    tl.to(ballRef.current, { x: '70%', y: 60, ease: 'power1.in', duration: 0.2 })
-      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.2 })
+    tl.to(ballRef.current, { x: '88%', y: 60, ease: 'power1.in', duration: 0.25 })
+      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.25 })
       .to('.about-card-3', { opacity: 1, y: 0, scale: 1, ease: 'back.out(1.4)', duration: 0.4 }, '-=0.1')
       .to('.about-card-3 .icon-wrapper', { rotateY: 180, duration: 0.3 }, '<');
-
-    // Dribble to Card 5
-    tl.to(ballRef.current, { x: '92%', y: 60, ease: 'power1.in', duration: 0.2 })
-      .to(ballRef.current, { y: -20, ease: 'power1.out', duration: 0.2 })
-      .to('.about-card-4', { opacity: 1, y: 0, scale: 1, ease: 'back.out(1.4)', duration: 0.4 }, '-=0.1')
-      .to('.about-card-4 .icon-wrapper', { y: -10, duration: 0.2, yoyo: true, repeat: 1 }, '<');
 
     // Ball rolls off screen
     tl.to(ballRef.current, { x: '105%', y: 300, rotate: 360, opacity: 0, duration: 0.4 });
@@ -143,7 +137,7 @@ export default function AboutSection() {
         {/* Cards Grid */}
         <div 
           ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 lg:gap-6 w-full"
+          className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4 lg:gap-6 w-full"
         >
           {cards.map((card, idx) => (
             <div
