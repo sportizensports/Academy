@@ -24,12 +24,6 @@ export default function AboutSection() {
 
   const cards: AboutCard[] = [
     {
-      id: 'elite-coaching',
-      title: 'Elite Coaching',
-      description: 'Train under former national players and FIBA-certified coaches who analyze every move.',
-      icon: <ShieldCheck className="w-10 h-10 text-[#F47A20]" />,
-    },
-    {
       id: 'skill-dev',
       title: 'Skill Development',
       description: 'Master shooting mechanisms, ball-handling, court vision, and footwork patterns.',
