@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0E2240;
+  --color-orange: #F47A20;
+  --color-orange-glow: rgba(244, 122, 32, 0.45);
+  --color-navy-light: #162F56;
+  --color-navy-dark: #071324;
+  --font-bebas: var(--font-bebas-neue);
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0E2240;
+}
+::-webkit-scrollbar-thumb {
+  background: #F47A20;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9142;
+}
+
+/* Custom styles and animations */
+@keyframes fog-move {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(-5%, 5%) scale(1.1);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+}
+
+.animate-fog {
+  animation: fog-move 20s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(244, 122, 32, 0.4);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(244, 122, 32, 0.8);
+    filter: brightness(1.2);
+  }
+}
+
+.glow-btn {
+  animation: pulse-glow 3s infinite;
+}
+
+/* Glassmorphism */
+.glass-card {
+  background: rgba(14, 34, 64, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Cursor Hide */
+@media (min-width: 1024px) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active select,
+  .custom-cursor-active textarea,
+  .custom-cursor-active [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Hide navigation bar default scrolling indicators */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
