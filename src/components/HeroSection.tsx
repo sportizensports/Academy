@@ -309,13 +309,16 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div ref={textRef} className="absolute top-[28%] md:top-[26%] z-10 text-center px-4 max-w-2xl">
+      <div ref={textRef} className="absolute top-[26%] md:top-[24%] z-10 text-center px-4 max-w-3xl flex flex-col items-center">
         <h1 className="font-bebas text-6xl md:text-8xl tracking-wider text-white leading-tight shadow-sm drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]">
           SPORTIZEN
         </h1>
-        <p className="text-sm md:text-lg tracking-[0.3em] text-[#F47A20] font-bold uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+        <p className="text-sm md:text-lg tracking-[0.3em] text-[#F47A20] font-bold uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] mb-4 md:mb-6">
           Basketball Academy
         </p>
+        <span className="font-bebas text-2xl md:text-4xl tracking-widest text-white/90 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] font-medium uppercase border-t border-white/20 pt-3 md:pt-4 px-6">
+          Where Champions Begin.
+        </span>
       </div>
 
       <div ref={scrollHelperRef} className="absolute bottom-[10%] z-10 text-center">

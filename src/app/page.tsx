@@ -11,7 +11,7 @@ import BackgroundScrollAnimation from '@/components/ui/BackgroundScrollAnimation
 import Navbar from '@/components/Navbar';
 import CourtScrollIndicator from '@/components/ui/CourtScrollIndicator';
 import HeroSection from '@/components/HeroSection';
-import WelcomeSection from '@/components/WelcomeSection';
+
 import ProgramsSection from '@/components/ProgramsSection';
 import WhySection from '@/components/WhySection';
 import GallerySection from '@/components/GallerySection';
@@ -75,8 +75,7 @@ export default function Home() {
         {/* Section 1: Hero - Full viewport dunk scene */}
         <HeroSection />
         
-        {/* Section 2: Welcome - Typography letter-reveal */}
-        <WelcomeSection />
+
         
         {/* Section 3: Programs - Expandable horizontal cards */}
         <ProgramsSection />
