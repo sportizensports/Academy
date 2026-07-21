@@ -23,8 +23,8 @@ export default function WelcomeSection() {
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top bottom', // Start animating when section enters bottom
-        end: 'bottom top',   // End when section leaves top
-        scrub: 1,            // Scrub scroll progress
+        end: 'top 65%',      // End when top is 65% of viewport (fully transitioned by then)
+        scrub: 0.8,          // Snappier transition
       }
     });
 
@@ -41,9 +41,9 @@ export default function WelcomeSection() {
     const rollTl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: 'top 60%',
-        end: 'bottom 80%',
-        scrub: 1.2,
+        start: 'top 75%',    // Start earlier
+        end: 'top 35%',      // Reach full opacity sooner (when text is centered)
+        scrub: 1.0,
       }
     });
 
